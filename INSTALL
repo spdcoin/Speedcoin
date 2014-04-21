@@ -1,0 +1,12 @@
+Building Speedcoin
+
+See doc/readme-qt.rst for instructions on building Speedcoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Speedcoin.
+
+See doc/build-*.txt for instructions on building speedcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Speedcoin.
+
+Further build information and documentation is available at
+the official Speedcoin website, http://www.speedcoin.co
