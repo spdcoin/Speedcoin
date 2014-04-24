@@ -15,7 +15,7 @@ Speedcoin [SPD] is a lite version of Bitcoin using scrypt-adaptive-N as a proof-
  - subsidy halves in 2 million blocks (~4 years)
  - 10,105 million total coins
  - 10,000 million premined coins
- - 100,000,000 coins ready to mine
+ - 105,000,000 coins ready to mine
  - 25 coins per block
  - Every block to retarget difficulty with Kimotos Gravity Well algorithm
 
