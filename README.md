@@ -87,14 +87,14 @@ run speedcoin-1.0-win32-setup.exe
 
 Linux Installation
 ------------------
-cd ~ 
-git clone https://github.com/spdcoin/speedcoin 
-cd ~/speedcoin/src/leveldb 
-sh build_detect_platform build_config.mk ./ 
-cd .. 
-make -f makefile.unix USE_UPNP=- 
-cp speedcoind .. 
-~/speedcoin/speedcoind # start server
+    cd ~ 
+    git clone https://github.com/spdcoin/speedcoin 
+    cd ~/speedcoin/src/leveldb 
+    sh build_detect_platform build_config.mk ./ 
+    cd .. 
+    make -f makefile.unix USE_UPNP=- 
+    cp speedcoind .. 
+    ~/speedcoin/speedcoind # start server
 
 
 Testing
