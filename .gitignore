@@ -13,7 +13,6 @@ src/test_speedcoin
 
 # Compilation and Qt preprocessor part
 *.qm
-Makefile
 speedcoin-qt
 Speedcoin-Qt.app
 
@@ -33,4 +32,4 @@ build
 Info
 Speedcoin-Qt.xcodeproj
 
-!src/leveldb-*/Makefile
+
