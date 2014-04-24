@@ -56,6 +56,7 @@ Speedcoin is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
 
 
+
 Development process
 -------------------
 
@@ -86,14 +87,15 @@ run speedcoin-1.0-win32-setup.exe
 
 Linux Installation
 ------------------
-cd ~
-git clone https://github.com/spdcoin/speedcoin
-cd ~/speedcoin/src/leveldb
-sh build_detect_platform build_config.mk ./
-cd ..
-make -f makefile.unix USE_UPNP=-
-cp speedcoind ..
+cd ~ 
+git clone https://github.com/spdcoin/speedcoin 
+cd ~/speedcoin/src/leveldb 
+sh build_detect_platform build_config.mk ./ 
+cd .. 
+make -f makefile.unix USE_UPNP=- 
+cp speedcoind .. 
 ~/speedcoin/speedcoind # start server
+
 
 Testing
 -------
