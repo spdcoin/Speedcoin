@@ -3,9 +3,9 @@ Speedcoin integration/staging tree
 
 http://www.speedcoin.co
 
-Copyright (c) 2009-2013 Bitcoin Developers
-Copyright (c) 2011-2013 Litecoin Developers
-Copyright (c) 2014 Speedcoin Developers
+Copyright (c) 2009-2013 Bitcoin Developers 
+Copyright (c) 2011-2013 Litecoin Developers 
+Copyright (c) 2014 Speedcoin Developers 
 
 What is Speedcoin?
 ----------------
@@ -15,6 +15,7 @@ Speedcoin [SPD] is a lite version of Bitcoin using scrypt-adaptive-N as a proof-
  - subsidy halves in 2 million blocks (~4 years)
  - 10,105 million total coins
  - 10,000 million premined coins
+ - 100,000,000 coins ready to mine
  - 25 coins per block
  - Every block to retarget difficulty with Kimotos Gravity Well algorithm
 
@@ -24,17 +25,36 @@ understand computers technology and have special equipment so that ordinary Inte
 cannot mine new coins and must to buy it.
 
 The main idea behind Speedcoin is different. It is to evenly distribute pre-mined Speedcoins 
-amongst millions of world internet users (with the user only needing to have a Facebook account) 
-through an open clear process.
+to millions of Facebook users across the world through an open clear process on our website. 
+Its  process distribution is similar to Iceland's Auroracoin but ours is distributed globally.  
+
+Any Facebook user simply needs to go to Speedcoin.co and log in to our website and enter 
+Speedcoin address. 100 SPD will be sent to him automatically. To ensure the same user does 
+not use multiple Facebook accounts we request that the user have verified Facebook and 
+10+ people in his Facebook friend list.
+
+http://speedcoin.co/info/free_coins/Free_Speedcoins.html 
+
+
+To promote the success of Speedcoin worldwide, we use affiliate programme on our website 
+Speedcoin.co and pay 5 Speedcoins  as a Reward for each new user. Webmasters can place the 
+Speedcoin affiliate link on their website/s and normal users can sent the affiliate link to 
+their friends or publish it in their blogs. In our opinion, any time you use to spread the 
+news of Speedcoin should be rewarded. That is why we made the affiliate programme. 
+
+http://speedcoin.co/info/affiliate/Affiliate_Program_Speedcoins.html 
+
 
 For more information, as well as an immediately useable, binary version of
-the Speedcoin client sofware, see http://www.speedcoin.co.
+the Speedcoin client sofware, see http://www.speedcoin.co
+
 
 License
 -------
 
 Speedcoin is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
+
 
 Development process
 -------------------
@@ -57,6 +77,23 @@ controversial.
 The `master` branch is regularly built and tested, but is not guaranteed to be
 completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
 regularly to indicate new official, stable release versions of Speedcoin.
+
+
+Windows Installation
+------------------
+run speedcoin-1.0-win32-setup.exe 
+
+
+Linux Installation
+------------------
+cd ~
+git clone https://github.com/spdcoin/speedcoin
+cd ~/speedcoin/src/leveldb
+sh build_detect_platform build_config.mk ./
+cd ..
+make -f makefile.unix USE_UPNP=-
+cp speedcoind ..
+~/speedcoin/speedcoind # start server
 
 Testing
 -------
