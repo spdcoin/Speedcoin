@@ -88,13 +88,33 @@ run speedcoin-1.0-win32-setup.exe
 Linux Installation
 ------------------
     cd ~ 
+	apt-get update
+	apt-get install git screen make automake build-essential libboost-all-dev
+	apt-get install sudo yasm binutils libcurl4-openssl-dev openssl libssl-dev 
+	wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
+	tar zxf db-4.8.30.NC.tar.gz
+	cd db-4.8.30.NC/build_unix
+	../dist/configure --enable-cxx
+	make
+	sudo make install
+	sudo ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/lib/libdb-4.8.so
+	sudo ln -s /usr/local/BerkeleyDB.4.8/lib/libdb_cxx-4.8.so /usr/lib/libdb_cxx-4.8.so
+	export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
+	export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
+	rm -R ~/db-4.8.30.NC*
     git clone https://github.com/spdcoin/speedcoin 
     cd ~/speedcoin/src/leveldb 
     sh build_detect_platform build_config.mk ./ 
     cd .. 
     make -f makefile.unix USE_UPNP=- 
     cp speedcoind .. 
-    ~/speedcoin/speedcoind # start server
+	cd ..
+	qmake  #(on Ubuntu 14.04: run qmake-qt4)
+	make
+
+    ~/speedcoin/speedcoind # start daemon server
+	./speedcoin-qt # start gui speedcoin
+	
 
 
 Testing
