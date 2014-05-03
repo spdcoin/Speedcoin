@@ -49,48 +49,37 @@ For more information, as well as an immediately useable, binary version of
 the Speedcoin client sofware, see http://www.speedcoin.co
 
 
-License
--------
-
-Speedcoin is released under the terms of the MIT license. See `COPYING` for more
-information or see http://opensource.org/licenses/MIT.
-
-
-
-Development process
--------------------
-
-Developers work in their own trees, then submit pull requests when they think
-their feature or bug fix is ready.
-
-If it is a simple/trivial/non-controversial change, then one of the Speedcoin
-development team members simply pulls it.
-
-If it is a *more complicated or potentially controversial* change, then the patch
-submitter will be asked to start a discussion (if they haven't already) on the
-[mailing list](http://sourceforge.net/mailarchive/forum.php?forum_name=bitcoin-development).
-
-The patch will be accepted if there is broad consensus that it is a good thing.
-Developers should expect to rework and resubmit patches if the code doesn't
-match the project's coding conventions (see `doc/coding.txt`) or are
-controversial.
-
-The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
-regularly to indicate new official, stable release versions of Speedcoin.
 
 
 Windows Installation
 ------------------
+
 run speedcoin-1.0-win32-setup.exe 
+
+
+
+
+Mac Installation
+------------------
+
+run speedcoin-1.0-mac-osx.zip
+
+
 
 
 Linux Installation
 ------------------
-    cd ~ 
+
+Simple Step-by-Step Guide. Open Linux Terminal Window and run
+
+	su - # grant root access, need enter your login password
+	apt-get install sudo
+	sudo -i
+	cd ~ 
 	apt-get update
+	apt-get upgrade
 	apt-get install git screen make automake build-essential libboost-all-dev
-	apt-get install sudo yasm binutils libcurl4-openssl-dev openssl libssl-dev 
+	apt-get install yasm binutils libcurl4-openssl-dev openssl libssl-dev 
 	wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
 	tar zxf db-4.8.30.NC.tar.gz
 	cd db-4.8.30.NC/build_unix
@@ -102,41 +91,29 @@ Linux Installation
 	export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
 	export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
 	rm -R ~/db-4.8.30.NC*
-    git clone https://github.com/spdcoin/speedcoin 
-    cd ~/speedcoin/src/leveldb 
-    sh build_detect_platform build_config.mk ./ 
-    cd .. 
-    make -f makefile.unix USE_UPNP=- 
-    cp speedcoind .. 
-	cd ..
-	qmake  #(on Ubuntu 14.04: run qmake-qt4)
+	git clone https://github.com/spdcoin/speedcoin 
+	cd ~/speedcoin/src/leveldb 
+	sh build_detect_platform build_config.mk ./ 
+	cd .. 
+	make -f makefile.unix USE_UPNP=- 
+	cp speedcoind .. 
+	# start daemon server
+	~/speedcoin/speedcoind 
+	#
+	# GUI Wallet	
+	cd ~/speedcoin
+	sudo apt-get install libssl-dev libdb-dev libdb++-dev libqrencode-dev qt4-qmake libqtgui4 libqt4-dev
+	sudo apt-get install libminiupnpc-dev libboost-all-dev build-essential git 
+	sed -i 's/-mgw48-mt-s-1_55//g' speedcoin-qt.pro
+	qmake USE_UPNP=- #(on Ubuntu 14.04: run qmake-qt4 USE_UPNP=-)
 	make
-
-    ~/speedcoin/speedcoind # start daemon server
-	./speedcoin-qt # start gui speedcoin
-	
+	# start gui speedcoin wallet
+	~/speedcoin/speedcoin-qt 
 
 
-Testing
+License
 -------
 
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test. Please be patient and help out, and
-remember this is a security-critical project where any mistake might cost people
-lots of money.
-
-### Automated Testing
-
-Developers are strongly encouraged to write unit tests for new code, and to
-submit new unit tests for old code.
-
-Unit tests for the core code are in `src/test/`. To compile and run them:
-
-    cd src; make -f makefile.unix test
-
-Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
-
-    qmake BITCOIN_QT_TEST=1 -o Makefile.test bitcoin-qt.pro
-    make -f Makefile.test
-    ./speedcoin-qt_test
+Speedcoin is released under the terms of the MIT license. See `COPYING` for more
+information or see http://opensource.org/licenses/MIT.
 
