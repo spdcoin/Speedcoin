@@ -90,6 +90,7 @@ Simple Step-by-Step Guide. Open Linux Terminal Window and run
 	sudo ln -s /usr/local/BerkeleyDB.4.8/lib/libdb_cxx-4.8.so /usr/lib/libdb_cxx-4.8.so
 	export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
 	export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
+	cd ~ 
 	rm -R ~/db-4.8.30.NC*
 	git clone https://github.com/spdcoin/speedcoin 
 	cd ~/speedcoin/src/leveldb 
