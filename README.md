@@ -112,6 +112,31 @@ Simple Step-by-Step Guide. Open Linux Terminal Window and run
 	~/speedcoin/speedcoin-qt 
 
 
+	
+Linux Speedcoin Upgrade to ver 1.0.1
+--------------------------------------
+	su -
+	~/speedcoin/speedcoind stop # stop speedcoind server v1.0.0
+	apt-get update
+	apt-get upgrade
+	export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
+	export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
+	cd ~ 
+	rm -R ~/speedcoin
+	git clone https://github.com/spdcoin/speedcoin 
+	cd ~/speedcoin/src/leveldb 
+	sh build_detect_platform build_config.mk ./ 
+	cd .. 
+	make -f makefile.unix USE_UPNP=- 
+	cp speedcoind .. 
+	~/speedcoin/speedcoind # start speedcoind server ver1.0.1
+	cd ~/speedcoin
+	sed -i 's/-mgw48-mt-s-1_55//g' speedcoin-qt.pro
+	qmake USE_UPNP=- 
+	make
+	~/speedcoin/speedcoin-qt # start speedcoind gui ver1.0.1
+
+	
 License
 -------
 
