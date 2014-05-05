@@ -113,10 +113,12 @@ Simple Step-by-Step Guide. Open Linux Terminal Window and run
 
 	
 
-If you have an old version of Speedcoin installed, please use the guide below
+
 	
 Linux Speedcoin Upgrade to ver 1.0.1
 --------------------------------------
+If you have an old version of Speedcoin installed, please use the guide below
+
 	su -
 	~/speedcoin/speedcoind stop # stop speedcoind server v1.0.0
 	apt-get update
