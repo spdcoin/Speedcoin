@@ -111,7 +111,9 @@ Simple Step-by-Step Guide. Open Linux Terminal Window and run
 	# start gui speedcoin wallet
 	~/speedcoin/speedcoin-qt 
 
+	
 
+If you have an old version of Speedcoin installed, please use the guide below
 	
 Linux Speedcoin Upgrade to ver 1.0.1
 --------------------------------------
@@ -132,7 +134,7 @@ Linux Speedcoin Upgrade to ver 1.0.1
 	~/speedcoin/speedcoind # start speedcoind server ver1.0.1
 	cd ~/speedcoin
 	sed -i 's/-mgw48-mt-s-1_55//g' speedcoin-qt.pro
-	qmake USE_UPNP=- 
+	qmake USE_UPNP=-  # (on Ubuntu 14.04: run qmake-qt4 USE_UPNP=-)
 	make
 	~/speedcoin/speedcoin-qt # start speedcoind gui ver1.0.1
 
