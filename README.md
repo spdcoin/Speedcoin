@@ -138,7 +138,7 @@ If you have an old version of Speedcoin installed, please use the guide below
 	sed -i 's/-mgw48-mt-s-1_55//g' speedcoin-qt.pro
 	qmake USE_UPNP=-  # (on Ubuntu 14.04: run qmake-qt4 USE_UPNP=-)
 	make
-	~/speedcoin/speedcoin-qt # start speedcoind gui
+	~/speedcoin/speedcoin-qt # start speedcoin gui
 
 	
 License
