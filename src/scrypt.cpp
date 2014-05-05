@@ -203,26 +203,26 @@ static inline void xor_salsa8(uint32_t B[16], const uint32_t Bx[16])
 		/* Operate on columns. */
 		x04 ^= ROTL(x00 + x12,  7);  x09 ^= ROTL(x05 + x01,  7);
 		x14 ^= ROTL(x10 + x06,  7);  x03 ^= ROTL(x15 + x11,  7);
-		
+
 		x08 ^= ROTL(x04 + x00,  9);  x13 ^= ROTL(x09 + x05,  9);
 		x02 ^= ROTL(x14 + x10,  9);  x07 ^= ROTL(x03 + x15,  9);
-		
+
 		x12 ^= ROTL(x08 + x04, 13);  x01 ^= ROTL(x13 + x09, 13);
 		x06 ^= ROTL(x02 + x14, 13);  x11 ^= ROTL(x07 + x03, 13);
-		
+
 		x00 ^= ROTL(x12 + x08, 18);  x05 ^= ROTL(x01 + x13, 18);
 		x10 ^= ROTL(x06 + x02, 18);  x15 ^= ROTL(x11 + x07, 18);
-		
+
 		/* Operate on rows. */
 		x01 ^= ROTL(x00 + x03,  7);  x06 ^= ROTL(x05 + x04,  7);
 		x11 ^= ROTL(x10 + x09,  7);  x12 ^= ROTL(x15 + x14,  7);
-		
+
 		x02 ^= ROTL(x01 + x00,  9);  x07 ^= ROTL(x06 + x05,  9);
 		x08 ^= ROTL(x11 + x10,  9);  x13 ^= ROTL(x12 + x15,  9);
-		
+
 		x03 ^= ROTL(x02 + x01, 13);  x04 ^= ROTL(x07 + x06, 13);
 		x09 ^= ROTL(x08 + x11, 13);  x14 ^= ROTL(x13 + x12, 13);
-		
+
 		x00 ^= ROTL(x03 + x02, 18);  x05 ^= ROTL(x04 + x07, 18);
 		x10 ^= ROTL(x09 + x08, 18);  x15 ^= ROTL(x14 + x13, 18);
 	}
@@ -252,7 +252,7 @@ void scrypt_N_1_1_256_sp_generic(const char *input, char *output, char *scratchp
 	uint32_t i, j, k, N;
 
 	V = (uint32_t *)(((uintptr_t)(scratchpad) + 63) & ~ (uintptr_t)(63));
-	
+
 	PBKDF2_SHA256((const uint8_t *)input, 80, (const uint8_t *)input, 80, 1, B, 128);
 
 	for (k = 0; k < 32; k++)

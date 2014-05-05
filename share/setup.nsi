@@ -1,13 +1,14 @@
-Name Speedcoin
+Name "Speedcoin Wallet"
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.0.0.0
-!define COMPANY "Speedcoin project"
+!define VERSION 1.0.1.0
+!define COMPANY "Speedcoin Project"
 !define URL http://www.speedcoin.co/
+!define ABOUTURL http://www.speedcoin.co/
 
 # MUI Symbol Definitions
 !define MUI_ICON "../share/pixmaps/speedcoin.ico"
@@ -19,7 +20,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER Speedcoin
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Speedcoin Wallet"
 !define MUI_FINISHPAGE_RUN $INSTDIR\speedcoin-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
@@ -45,14 +46,14 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile speedcoin-0.8.6.3-win32-setup.exe
-InstallDir $PROGRAMFILES\Speedcoin
+OutFile speedcoin-${VERSION}-win32-setup.exe
+InstallDir "$PROGRAMFILES\Speedcoin Wallet"
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
-VIProductVersion 0.8.6.3
-VIAddVersionKey ProductName Speedcoin
+VIProductVersion ${VERSION}
+VIAddVersionKey ProductName "Speedcoin Wallet"
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -87,7 +88,6 @@ Section -post SEC0001
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Speedcoin.lnk" $INSTDIR\speedcoin-qt.exe
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Speedcoin.lnk" $INSTDIR\uninstall.exe
-    CreateShortCut "$SMSTARTUP\Speedcoin.lnk" "$INSTDIR\speedcoin-qt.exe" "-min -splash 0"
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"

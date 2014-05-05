@@ -1,43 +1,34 @@
 ---
 name: "speedcoin"
 suites:
-- "lucid"
+- "precise"
 architectures:
 - "i386"
 - "amd64"
 packages: 
-- "libdb4.8++-dev"
 - "qt4-qmake"
 - "libqt4-dev"
-- "libboost-system-dev"
-- "libboost-filesystem-dev"
-- "libboost-program-options-dev"
-- "libboost-thread-dev"
-- "libssl-dev"
 - "git-core"
 - "unzip"
 - "pkg-config"
 - "libpng12-dev"
 reference_datetime: "2011-01-30 00:00:00"
 remotes:
-- "url": "https://github.com/speedcoin/speedcoin.git"
+- "url": "https://github.com/spd/speedcoin.git"
   "dir": "speedcoin"
 files:
-- "miniupnpc-1.6.tar.gz"
-- "qrencode-3.2.0.tar.bz2"
+- "speedcoin-deps-linux32-gitian-r1.zip"
+- "speedcoin-deps-linux64-gitian-r1.zip"
+- "boost-linux32-1.55.0-gitian-r1.zip"
+- "boost-linux64-1.55.0-gitian-r1.zip"
 script: |
   INSTDIR="$HOME/install"
   export LIBRARY_PATH="$INSTDIR/lib"
   #
-  tar xzf miniupnpc-1.6.tar.gz
-  cd miniupnpc-1.6
-  INSTALLPREFIX=$INSTDIR make $MAKEOPTS install
-  cd ..
-  #
-  tar xjf qrencode-3.2.0.tar.bz2
-  cd qrencode-3.2.0
-  ./configure --prefix=$INSTDIR --enable-static --disable-shared
-  make $MAKEOPTS install
+  mkdir -p $INSTDIR
+  cd $INSTDIR
+  unzip ../build/speedcoin-deps-linux${GBUILD_BITS}-gitian-r1.zip
+  unzip ../build/boost-linux${GBUILD_BITS}-1.55.0-gitian-r1.zip
   cd ..
   #
   cd speedcoin
@@ -46,10 +37,10 @@ script: |
   cp $OUTDIR/src/doc/README.md $OUTDIR
   cp $OUTDIR/src/COPYING $OUTDIR
   cd src
-  make -f makefile.unix STATIC=1 OPENSSL_INCLUDE_PATH="$INSTDIR/include" OPENSSL_LIB_PATH="$INSTDIR/lib" $MAKEOPTS speedcoind USE_UPNP=1 DEBUGFLAGS= USE_SSE2=1
+  make -f makefile.unix STATIC=1 OPENSSL_INCLUDE_PATH="$INSTDIR/include" OPENSSL_LIB_PATH="$INSTDIR/lib" BOOST_LIB_SUFFIX="-mt" $MAKEOPTS speedcoind USE_UPNP=0 DEBUGFLAGS= USE_SSE2=1
   mkdir -p $OUTDIR/bin/$GBUILD_BITS
   install -s speedcoind $OUTDIR/bin/$GBUILD_BITS
   cd ..
-  qmake INCLUDEPATH="$INSTDIR/include" LIBS="-L$INSTDIR/lib" RELEASE=1 USE_QRCODE=1 USE_SSE2=1
+  qmake INCLUDEPATH="$INSTDIR/include" LIBS="-L$INSTDIR/lib" BOOST_LIB_SUFFIX="-mt" RELEASE=1 USE_QRCODE=1 USE_SSE2=1 USE_UPNP=1
   make $MAKEOPTS
   install speedcoin-qt $OUTDIR/bin/$GBUILD_BITS

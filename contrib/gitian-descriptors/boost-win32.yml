@@ -64,4 +64,3 @@ script: |
   export FAKETIME=$REFERENCE_DATETIME
   zip -r boost-win32-1.55.0-gitian-r6.zip *
   cp boost-win32-1.55.0-gitian-r6.zip $OUTDIR
-

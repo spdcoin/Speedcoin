@@ -14,7 +14,7 @@ Release Process
 
 ###tag version in git
 
-	git tag -a v0.8.0
+	git tag -a v1.0.1
 
 ###write release notes. git shortlog helps a lot, for example:
 
@@ -27,20 +27,20 @@ Release Process
  From a directory containing the speedcoin source, gitian-builder and gitian.sigs
   
 	export SIGNER=(your gitian key, ie bluematt, sipa, etc)
-	export VERSION=0.8.0
+	export VERSION=1.0.1
 	cd ./gitian-builder
 
  Fetch and build inputs: (first time, or when dependency versions change)
 
 	mkdir -p inputs; cd inputs/
-	wget 'http://miniupnp.free.fr/files/download.php?file=miniupnpc-1.6.tar.gz' -O miniupnpc-1.6.tar.gz
+	wget 'http://miniupnp.free.fr/files/download.php?file=miniupnpc-1.9.20140401.tar.gz' -O miniupnpc-1.9.20140401.tar.gz'
 	wget 'http://www.openssl.org/source/openssl-1.0.1g.tar.gz'
 	wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
-	wget 'http://zlib.net/zlib-1.2.6.tar.gz'
-	wget 'ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.5.9.tar.gz'
-	wget 'http://fukuchi.org/works/qrencode/qrencode-3.2.0.tar.bz2'
-	wget 'http://downloads.sourceforge.net/project/boost/boost/1.50.0/boost_1_50_0.tar.bz2'
-	wget 'http://releases.qt-project.org/qt4/source/qt-everywhere-opensource-src-4.8.3.tar.gz'
+	wget 'http://zlib.net/zlib-1.2.8.tar.gz'
+	wget 'ftp://ftp.simplesystems.org/pub/libpng/png/src/history/libpng16/libpng-1.6.8.tar.gz'
+	wget 'http://fukuchi.org/works/qrencode/qrencode-3.4.3.tar.bz2'
+	wget 'http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2'
+	wget 'http://download.qt-project.org/official_releases/qt/4.8/4.8.5/qt-everywhere-opensource-src-4.8.5.tar.gz'
 	cd ..
 	./bin/gbuild ../speedcoin/contrib/gitian-descriptors/boost-win32.yml
 	mv build/out/boost-win32-1.50.0-gitian2.zip inputs/
@@ -87,21 +87,21 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 **Perform Mac build:**
 
-  OSX binaries are created by Gavin Andresen on a 32-bit, OSX 10.6 machine.
+  OSX binaries are created on a dedicated 32-bit, OSX 10.6.8 machine.
 
 	qmake RELEASE=1 USE_UPNP=1 USE_QRCODE=1 speedcoin-qt.pro
 	make
 	export QTDIR=/opt/local/share/qt4  # needed to find translations/qt_*.qm files
 	T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
 	python2.7 share/qt/clean_mac_info_plist.py
-	python2.7 contrib/macdeploy/macdeployqtplus Bitcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
+	python2.7 contrib/macdeploy/macdeployqtplus Speedcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
 
- Build output expected: Bitcoin-Qt.dmg
+ Build output expected: Speedcoin-Qt.dmg
 
 ###Next steps:
 
 * Code-sign Windows -setup.exe (in a Windows virtual machine) and
-  OSX Bitcoin-Qt.app (Note: only Gavin has the code-signing keys currently)
+  OSX Speedcoin-Qt.app (Note: only Gavin has the code-signing keys currently)
 
 * upload builds to SourceForge
 
@@ -114,8 +114,6 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 * update wiki download links
 
-* update wiki changelog: [https://en.speedcoin.it/wiki/Changelog](https://en.bitcoin.it/wiki/Changelog)
-
 Commit your signature to gitian.sigs:
 
 	pushd gitian.sigs
@@ -125,37 +123,3 @@ Commit your signature to gitian.sigs:
 	git push  # Assuming you can push to the gitian.sigs tree
 	popd
 
--------------------------------------------------------------------------
-
-### After 3 or more people have gitian-built, repackage gitian-signed zips:
-
-From a directory containing speedcoin source, gitian.sigs and gitian zips
-
-	export VERSION=0.5.1
-	mkdir speedcoin-${VERSION}-linux-gitian
-	pushd speedcoin-${VERSION}-linux-gitian
-	unzip ../speedcoin-${VERSION}-linux-gitian.zip
-	mkdir gitian
-	cp ../speedcoin/contrib/gitian-downloader/*.pgp ./gitian/
-	for signer in $(ls ../gitian.sigs/${VERSION}/); do
-	 cp ../gitian.sigs/${VERSION}/${signer}/speedcoin-build.assert ./gitian/${signer}-build.assert
-	 cp ../gitian.sigs/${VERSION}/${signer}/speedcoin-build.assert.sig ./gitian/${signer}-build.assert.sig
-	done
-	zip -r speedcoin-${VERSION}-linux-gitian.zip *
-	cp speedcoin-${VERSION}-linux-gitian.zip ../
-	popd
-	mkdir speedcoin-${VERSION}-win32-gitian
-	pushd speedcoin-${VERSION}-win32-gitian
-	unzip ../speedcoin-${VERSION}-win32-gitian.zip
-	mkdir gitian
-	cp ../speedcoin/contrib/gitian-downloader/*.pgp ./gitian/
-	for signer in $(ls ../gitian.sigs/${VERSION}-win32/); do
-	 cp ../gitian.sigs/${VERSION}-win32/${signer}/speedcoin-build.assert ./gitian/${signer}-build.assert
-	 cp ../gitian.sigs/${VERSION}-win32/${signer}/speedcoin-build.assert.sig ./gitian/${signer}-build.assert.sig
-	done
-	zip -r speedcoin-${VERSION}-win32-gitian.zip *
-	cp speedcoin-${VERSION}-win32-gitian.zip ../
-	popd
-
-- Upload gitian zips to SourceForge
-- Celebrate 
