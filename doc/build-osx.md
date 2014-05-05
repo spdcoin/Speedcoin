@@ -76,7 +76,7 @@ Installing the dependencies using MacPorts is very straightforward.
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone git@github.com:speedcoin-project/speedcoin.git speedcoin
+        git clone git@github.com:speedcoin-project/Speedcoin.git speedcoin
         cd speedcoin
 
 2.  Build speedcoind:
