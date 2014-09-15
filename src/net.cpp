@@ -51,7 +51,7 @@ static CNode* pnodeSync = NULL;
 uint64 nLocalHostNonce = 0;
 static std::vector<SOCKET> vhListenSocket;
 CAddrMan addrman;
-int nMaxConnections = 125;
+int nMaxConnections = 250;
 
 vector<CNode*> vNodes;
 CCriticalSection cs_vNodes;
@@ -1241,7 +1241,9 @@ void ThreadDNSAddressSeed()
 
 unsigned int pnSeed[] =
 {
-    0xB01FDFBC, 0x25BBB4E1, 0xC6329334, 0x5CDE0E50, 0xC6329445, 0x5CDE146D, 0xC6329494
+	0xB01FDFBC, 0x25BBB4E1, 0xC6329334, 0x5CDE0E50, 0xC6329445, 0x5CDE146D, 0xC6329494,
+	0xC62E8A51, 0xD0A7EF65, 0x5F684726, 0x544D5C3C, 0x0ECBAC58, 0x5169BE38, 0x4405B0FE,
+	0x536D7E4A, 0xCBD51F92, 0xBC8D5AF3, 0xDFFFE11F, 0xD8E5162A, 0xC62E8A51, 0x4D23153E	
 };
 
 void DumpAddresses()
