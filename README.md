@@ -1,11 +1,11 @@
 Speedcoin integration/staging tree
 ================================
 
-http://www.speedcoin.co
+https://www.speedcoin.org
 
 Copyright (c) 2009-2013 Bitcoin Developers 
 Copyright (c) 2011-2013 Litecoin Developers 
-Copyright (c) 2014 Speedcoin Developers 
+Copyright (c) 2014-2017 Speedcoin Developers 
 
 What is Speedcoin?
 ----------------
@@ -28,25 +28,25 @@ The main idea behind Speedcoin is different. It is to evenly distribute pre-mine
 to millions of Facebook users across the world through an open clear process on our website. 
 Its  process distribution is similar to Iceland's Auroracoin but ours is distributed globally.  
 
-Any Facebook user simply needs to go to Speedcoin.co and log in to our website and enter 
-Speedcoin address. 100 SPD will be sent to him automatically. To ensure the same user does 
+Any Facebook user simply needs to go to Speedcoin.org and log in to our website and enter 
+Speedcoin address. 1,000 SPD will be sent to him automatically. To ensure the same user does 
 not use multiple Facebook accounts we request that the user have verified Facebook and 
 10+ people in his Facebook friend list.
 
-http://speedcoin.co/info/free_coins/Free_Speedcoins.html 
+https://speedcoin.org/info/free_coins/Free_Speedcoins.html 
 
 
 To promote the success of Speedcoin worldwide, we use affiliate programme on our website 
-Speedcoin.co and pay 5 Speedcoins  as a Reward for each new user. Webmasters can place the 
+Speedcoin.org and pay 5 Speedcoins  as a Reward for each new user. Webmasters can place the 
 Speedcoin affiliate link on their website/s and normal users can sent the affiliate link to 
 their friends or publish it in their blogs. In our opinion, any time you use to spread the 
 news of Speedcoin should be rewarded. That is why we made the affiliate programme. 
 
-http://speedcoin.co/info/affiliate/Affiliate_Program_Speedcoins.html 
+https://speedcoin.org/info/affiliate/Affiliate_Program_Speedcoins.html 
 
 
 For more information, as well as an immediately useable, binary version of
-the Speedcoin client sofware, see http://www.speedcoin.co
+the Speedcoin client sofware, see https://www.speedcoin.org
 
 
 

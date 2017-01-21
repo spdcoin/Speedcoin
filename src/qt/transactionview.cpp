@@ -393,7 +393,7 @@ void TransactionView::viewOnSpeedExplorer()
     QModelIndexList selection = transactionView->selectionModel()->selectedRows();
     if(!selection.isEmpty())
     {
-        QString format("http://speedcoin.co:2750/tx/");
+        QString format("http://speedcoin.org:2750/tx/");
         format += selection.at(0).data(TransactionTableModel::TxIDRole).toString();
 
         QDesktopServices::openUrl(QUrl(format));

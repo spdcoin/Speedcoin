@@ -92,7 +92,7 @@
        </property>
        <property name="text">
         <string notr="true">Copyright &amp;copy; 2009-YYYY The Bitcoin developers
-Copyright &amp;copy; YYYY The Speedcoin developers</string>
+Copyright &amp;copy; 2014-YYYY The Speedcoin developers</string>
        </property>
        <property name="textFormat">
         <enum>Qt::RichText</enum>
@@ -109,7 +109,7 @@ Copyright &amp;copy; YYYY The Speedcoin developers</string>
        </property>
        <property name="text">
         <string>  
-Speedcoin Website - http://www.speedcoin.co
+Speedcoin Website - https://www.speedcoin.org
 
 This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 

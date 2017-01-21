@@ -27,7 +27,7 @@
 using namespace std;
 using namespace boost;
 
-static const int MAX_OUTBOUND_CONNECTIONS = 12;
+static const int MAX_OUTBOUND_CONNECTIONS = 25;
 
 bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOutbound = NULL, const char *strDest = NULL, bool fOneShot = false);
 
@@ -366,7 +366,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
 
             pszGet = "GET / HTTP/1.1\r\n"
                      "Host: checkip.dyndns.org\r\n"
-                     "User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)\r\n"
+                     "User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)\r\n"
                      "Connection: close\r\n"
                      "\r\n";
 
@@ -385,7 +385,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
 
             pszGet = "GET /simple/ HTTP/1.1\r\n"
                      "Host: www.showmyip.com\r\n"
-                     "User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)\r\n"
+                     "User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)\r\n"
                      "Connection: close\r\n"
                      "\r\n";
 
@@ -1186,13 +1186,16 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {"dnsseed.speedcoin.co",  "dnsseed.speedcoin.co"},
-    {"dnsseed2.speedcoin.co", "dnsseed2.speedcoin.co"},
+    {"158.69.52.55",  "158.69.52.55"},
+    {"142.4.223.149",  "142.4.223.149"},
+    {"51.255.140.174",  "51.255.140.174"},
+    {"51.254.223.3",  "51.254.223.3"},
+    {"dnsseed.speedcoin.org", "dnsseed.speedcoin.org"},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-    {"testnet.speedcoin.co",  "testnet.speedcoin.co"},
+    {"testnet.speedcoin.org",  "testnet.speedcoin.org"},
     {NULL, NULL}
 };
 
@@ -1241,9 +1244,8 @@ void ThreadDNSAddressSeed()
 
 unsigned int pnSeed[] =
 {
-	0xB01FDFBC, 0x25BBB4E1, 0xC6329334, 0x5CDE0E50, 0xC6329445, 0x5CDE146D, 0xC6329494,
-	0xC62E8A51, 0xD0A7EF65, 0x5F684726, 0x544D5C3C, 0x0ECBAC58, 0x5169BE38, 0x4405B0FE,
-	0x536D7E4A, 0xCBD51F92, 0xBC8D5AF3, 0xDFFFE11F, 0xD8E5162A, 0xC62E8A51, 0x4D23153E	
+	0x6329B9E6, 0x9E453437, 0x33FF8CAE, 0x5D50D65A, 0x33FEDF03, 
+	0x49E8939A, 0x33FEC715, 0x6329B9E6, 0x49E8939A, 0x33FEC715	
 };
 
 void DumpAddresses()

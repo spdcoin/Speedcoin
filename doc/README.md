@@ -3,7 +3,7 @@ Speedcoin 1.0.x
 
 Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2011-2013 Litecoin Developers
-Copyright (c) 2014 Speedcoin Developers
+Copyright (c) 2014-2017 Speedcoin Developers
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -31,7 +31,7 @@ Unpack the files into a directory and run:
 - bin/64/speedcoin-qt (GUI, 64-bit)
 - bin/64/speedcoind (headless, 64-bit)
 
-See the documentation at the [Speedcoin Wiki](http://speedcoin.co)
+See the documentation at the [Speedcoin Wiki](https://speedcoin.org)
 for help and more information.
 
 

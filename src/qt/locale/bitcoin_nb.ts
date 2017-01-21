@@ -17,7 +17,7 @@
     <message>
         <location line="+57"/>
         <source>
-Speedcoin Official Website: http://www.speedcoin.co
+Speedcoin Official Website: https://www.speedcoin.org
 
 This is experimental software.
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.

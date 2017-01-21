@@ -5,10 +5,10 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.0.1.0
+!define VERSION 1.0.2.0
 !define COMPANY "Speedcoin Project"
-!define URL http://www.speedcoin.co/
-!define ABOUTURL http://www.speedcoin.co/
+!define URL https://www.speedcoin.org/
+!define ABOUTURL https://www.speedcoin.org/
 
 # MUI Symbol Definitions
 !define MUI_ICON "../share/pixmaps/speedcoin.ico"
