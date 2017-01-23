@@ -132,7 +132,7 @@ TransactionView::TransactionView(QWidget *parent) :
     QAction *copyTxIDAction = new QAction(tr("Copy transaction ID"), this);
     QAction *editLabelAction = new QAction(tr("Edit label"), this);
     QAction *showDetailsAction = new QAction(tr("Show transaction details"), this);
-    QAction *viewOnSpeedExplorerAction = new QAction(tr("View on SpeedExplorer"), this);
+    QAction *viewOnSpeedExplorerAction = new QAction(tr("View on Block Explorer"), this);
 
     contextMenu = new QMenu();
     contextMenu->addAction(copyAddressAction);

@@ -1,4 +1,4 @@
-1.0.2.0 changes
+1.0.3.0 changes
 =============
 Checkpoints updates
 

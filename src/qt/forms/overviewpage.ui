@@ -274,6 +274,13 @@
             </property>
            </widget>
           </item>
+          <item>
+             <widget class="QLabel" name="label_42">
+     		<property name="pixmap">
+     		 <pixmap resource="../bitcoin.qrc">:/images/promotion_horizontal</pixmap>
+     		</property>
+    	     </widget>
+   	    </item>
          </layout>
         </widget>
        </item>

@@ -15,9 +15,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(BTC);
-    unitlist.append(mBTC);
-    unitlist.append(uBTC);
+    unitlist.append(SPD);
+    unitlist.append(mSPD);
+    unitlist.append(uSPD);
     return unitlist;
 }
 
@@ -25,9 +25,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case BTC:
-    case mBTC:
-    case uBTC:
+    case SPD:
+    case mSPD:
+    case uSPD:
         return true;
     default:
         return false;
@@ -38,9 +38,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("SPD");
-    case mBTC: return QString("mSPD");
-    case uBTC: return QString::fromUtf8("μSPD");
+    case SPD: return QString("SPD");
+    case mSPD: return QString("mSPD");
+    case uSPD: return QString::fromUtf8("μSPD");
     default: return QString("???");
     }
 }
@@ -49,9 +49,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("Speedcoins");
-    case mBTC: return QString("Milli-Speedcoins (1 / 1,000)");
-    case uBTC: return QString("Micro-Speedcoins (1 / 1,000,000)");
+    case SPD: return QString("Speedcoins");
+    case mSPD: return QString("Milli-Speedcoins (1 / 1,000)");
+    case uSPD: return QString("Micro-Speedcoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
@@ -60,9 +60,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case BTC:  return 100000000;
-    case mBTC: return 100000;
-    case uBTC: return 100;
+    case SPD:  return 100000000;
+    case mSPD: return 100000;
+    case uSPD: return 100;
     default:   return 100000000;
     }
 }
@@ -71,9 +71,9 @@ int BitcoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case BTC: return 8; // 21,000,000 (# digits, without commas)
-    case mBTC: return 11; // 21,000,000,000
-    case uBTC: return 14; // 21,000,000,000,000
+    case SPD: return 8; // 21,000,000 (# digits, without commas)
+    case mSPD: return 11; // 21,000,000,000
+    case uSPD: return 14; // 21,000,000,000,000
     default: return 0;
     }
 }
@@ -82,9 +82,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case BTC: return 8;
-    case mBTC: return 5;
-    case uBTC: return 2;
+    case SPD: return 8;
+    case mSPD: return 5;
+    case uSPD: return 2;
     default: return 0;
     }
 }

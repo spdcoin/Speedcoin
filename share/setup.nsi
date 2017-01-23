@@ -5,7 +5,7 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.0.2.0
+!define VERSION 1.0.3.0
 !define COMPANY "Speedcoin Project"
 !define URL https://www.speedcoin.org/
 !define ABOUTURL https://www.speedcoin.org/

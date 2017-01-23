@@ -34,6 +34,15 @@
 #include <string.h>
 #include <openssl/sha.h>
 
+#if defined(USE_SSE2) && !defined(USE_SSE2_ALWAYS)
+#ifdef _MSC_VER
+// MSVC 64bit is unable to use inline asm
+#include <intrin.h>
+#else
+// GCC Linux or i686-w64-mingw32
+#include <cpuid.h>
+#endif
+#endif
 
 static inline uint32_t scrypt_be32dec(const void *pp)
 {

@@ -23,9 +23,9 @@ public:
      */
     enum Unit
     {
-        BTC,
-        mBTC,
-        uBTC
+        SPD,
+        mSPD,
+        uSPD
     };
 
     //! @name Static API
