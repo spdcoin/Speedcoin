@@ -5,17 +5,17 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.0.3.0
+!define VERSION 1.0.4.0
 !define COMPANY "Speedcoin Project"
 !define URL https://www.speedcoin.org/
 !define ABOUTURL https://www.speedcoin.org/
 
 # MUI Symbol Definitions
-!define MUI_ICON "../share/pixmaps/speedcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "files\speedcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "files\nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "../share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "files\nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -23,7 +23,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Speedcoin Wallet"
 !define MUI_FINISHPAGE_RUN $INSTDIR\speedcoin-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "files\nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -67,11 +67,11 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File ../release/speedcoin-qt.exe
-    File /oname=COPYING.txt ../COPYING
-    File /oname=readme.txt ../doc/README_windows.txt
-    SetOutPath $INSTDIR\daemon
-    File ../src/speedcoind.exe
+    File files\speedcoin-qt.exe
+    File files\speedcoind.exe
+    File files\speedcoin.conf.txt
+    File files\COPYING.txt
+    File files\readme.txt
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
@@ -86,7 +86,10 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Speedcoin.lnk" $INSTDIR\speedcoin-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Speedcoin Wallet.lnk" $INSTDIR\speedcoin-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Speedcoin Daemon.lnk" $INSTDIR\speedcoind.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Readme.txt.lnk" $INSTDIR\readme.txt
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Example of Config.lnk" $INSTDIR\speedcoin.conf.txt
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Speedcoin.lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
@@ -101,6 +104,7 @@ Section -post SEC0001
     WriteRegStr HKCR "speedcoin" "" "URL:Speedcoin"
     WriteRegStr HKCR "speedcoin\DefaultIcon" "" $INSTDIR\speedcoin-qt.exe
     WriteRegStr HKCR "speedcoin\shell\open\command" "" '"$INSTDIR\speedcoin-qt.exe" "%1"'
+    CreateShortCut "$DESKTOP\Speedcoin Wallet.lnk" $INSTDIR\speedcoin-qt.exe
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -119,17 +123,21 @@ done${UNSECTION_ID}:
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
     Delete /REBOOTOK $INSTDIR\speedcoin-qt.exe
+    Delete /REBOOTOK $INSTDIR\speedcoind.exe
+    Delete /REBOOTOK $INSTDIR\speedcoin.conf.txt
     Delete /REBOOTOK $INSTDIR\COPYING.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
-    RMDir /r /REBOOTOK $INSTDIR\daemon
     DeleteRegValue HKCU "${REGKEY}\Components" Main
 SectionEnd
 
 Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
     Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall Speedcoin.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Speedcoin.lnk"
-    Delete /REBOOTOK "$SMSTARTUP\Speedcoin.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Speedcoin Wallet.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Speedcoin Daemon.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Readme.txt.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Example of Config.lnk"
+    Delete /REBOOTOK "$DESKTOP\Speedcoin Wallet.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log

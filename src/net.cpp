@@ -1175,6 +1175,8 @@ static const char *strMainNetDNSSeed[][2] = {
     {"142.4.223.149",  "142.4.223.149"},
     {"51.255.140.174",  "51.255.140.174"},
     {"51.254.223.3",  "51.254.223.3"},
+    {"51.255.2.64",  "51.255.2.64"},
+    {"51.254.199.21",  "51.254.199.21"},
     {"dnsseed.speedcoin.org", "dnsseed.speedcoin.org"},
     {NULL, NULL}
 };
@@ -1229,7 +1231,7 @@ void ThreadDNSAddressSeed()
 
 unsigned int pnSeed[] =
 {
-	0x6329B9E6, 0x9E453437, 0x33FF8CAE, 0x5D50D65A, 0x33FEDF03, 
+	0x6329B9E6, 0x9E453437, 0x33FF8CAE, 0x5D50D65A, 0x33FEDF03, 0x33FF0240,
 	0x49E8939A, 0x33FEC715, 0x6329B9E6, 0x49E8939A, 0x33FEC715	
 };
 
