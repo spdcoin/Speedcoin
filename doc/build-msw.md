@@ -14,21 +14,21 @@ Similar like Bitcoin - https://bitcointalk.org/index.php?topic=149479.0
 
 Dependencies
 -------------------
-Boost 1.57
-DB 4.8.30.NC
-Libpng 1.6.16
-MiniUPNPC 1.9
-OpenSSL 1.0.1l
-Protobuf 2,6,1
-QREncode 3.4.4
-QT 5.3.2
+* Boost 1.57
+* DB 4.8.30.NC
+* Libpng 1.6.16
+* MiniUPNPC 1.9
+* OpenSSL 1.0.1l
+* Protobuf 2,6,1
+* QREncode 3.4.4
+* QT 5.3.2
 
-Also use
+Software
 ---
-MinGW
-mingw32
-Python 3.6
-Perl 6.4
+* MinGW
+* mingw32
+* Python 3.6
+* Perl 6.4
 
 
 
@@ -38,9 +38,9 @@ Run C:\MinGW\msys\1.0\msys.bat
 
 MSYS shell:
  
-   cd /c/speedcoin/src
-   make -f makefile.mingw
-   strip speedcoind.exe
+        cd /c/speedcoin/src
+        make -f makefile.mingw
+        strip speedcoind.exe
 
 
 
@@ -51,16 +51,16 @@ Run C:\MinGW\msys\1.0\msys.bat
 
 MSYS shell:
 
-   cd /C/speedcoin/src/leveldb
-   TARGET_OS=NATIVE_WINDOWS make libleveldb.a libmemenv.a
+        cd /C/speedcoin/src/leveldb
+        TARGET_OS=NATIVE_WINDOWS make libleveldb.a libmemenv.a
 
 
 Windows Command Line:
 
-   set PATH=%PATH%;C:\Qt\5.3.2\bin
-   cd C:\speedcoin\
-   qmake "USE_QRCODE=1" "USE_UPNP=1" "USE_IPV6=1" speedcoin-qt.pro
-   mingw32-make -f Makefile.Release
+        set PATH=%PATH%;C:\Qt\5.3.2\bin
+        cd C:\speedcoin\
+        qmake "USE_QRCODE=1" "USE_UPNP=1" "USE_IPV6=1" speedcoin-qt.pro
+        mingw32-make -f Makefile.Release
 
 
 
