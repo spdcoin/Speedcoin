@@ -19,7 +19,7 @@ Dependencies
 * Libpng 1.6.16
 * MiniUPNPC 1.9
 * OpenSSL 1.0.1l
-* Protobuf 2,6,1
+* Protobuf 2.6.1
 * QREncode 3.4.4
 * QT 5.3.2
 
