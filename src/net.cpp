@@ -27,7 +27,7 @@
 using namespace std;
 using namespace boost;
 
-static const int MAX_OUTBOUND_CONNECTIONS = 25;
+static const int MAX_OUTBOUND_CONNECTIONS = 50;
 
 bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOutbound = NULL, const char *strDest = NULL, bool fOneShot = false);
 
@@ -1231,8 +1231,9 @@ void ThreadDNSAddressSeed()
 
 unsigned int pnSeed[] =
 {
-	0x6329B9E6, 0x9E453437, 0x33FF8CAE, 0x5D50D65A, 0x33FEDF03, 0x33FF0240,
-	0x49E8939A, 0x33FEC715, 0x6329B9E6, 0x49E8939A, 0x33FEC715	
+	0x6329B9E6, 0x9E453437, 0x33FF8CAE, 0x5D50D65A, 0x33FEDF03, 0x33ff0240, 
+	0x49E8939A, 0x33FEC715, 0x6329B9E6, 0x49E8939A, 0x33FEC715, 0xd58857b1	
+
 };
 
 void DumpAddresses()

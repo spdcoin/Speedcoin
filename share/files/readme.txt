@@ -2,7 +2,7 @@ Speedcoin 1.0.x
 
 Copyright (c) 2009-2017 Bitcoin Developers
 Copyright (c) 2011-2017 Litecoin Developers
-Copyright (c) 2014-2017 Speedcoin Developers
+Copyright (c) 2014-2018 Speedcoin Developers
 
 Website: https://www.speedcoin.org/
 

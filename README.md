@@ -3,9 +3,11 @@ Speedcoin integration/staging tree
 
 https://www.speedcoin.org
 
-Copyright (c) 2009-2013 Bitcoin Developers 
-Copyright (c) 2011-2013 Litecoin Developers 
-Copyright (c) 2014-2017 Speedcoin Developers 
+ Copyright (c) 2009-2013 Bitcoin Developers 
+
+ Copyright (c) 2011-2013 Litecoin Developers 
+
+ Copyright (c) 2014-2018 Speedcoin Developers 
 
 What is Speedcoin?
 ----------------
@@ -18,6 +20,7 @@ Speedcoin [SPD] is a lite version of Bitcoin using scrypt-adaptive-N as a proof-
  - 105,000,000 coins ready to mine
  - 25 coins per block
  - Every block to retarget difficulty with Kimotos Gravity Well algorithm
+ - Scrypt-N algorithm
 
 The main problem with any cryptocurrency is that it does not spread widely amongst Internet users 
 because new crypto coins are mined by not many people (usually a few hundreds only) who well 
